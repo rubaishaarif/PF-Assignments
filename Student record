@@ -1,0 +1,75 @@
+#include <stdio.h>
+struct courses{
+    char name[30];
+    float GPA;
+};
+struct address{
+    char street_add[20];
+    char city [20];
+    char state[20];
+    int zip;
+};
+struct student{
+    float CGPA;
+    struct courses c[2];
+    struct address add;
+};
+int main() {
+struct student s1,s2;
+int i;
+printf("STUDENT 1: \n");
+printf("Enter CGPA : ");
+scanf("%f",&s1.CGPA);
+for(i=0;i<2;i++)
+{
+    printf("%d. Course name : ",i+1);
+    scanf("%s",s1.c[i].name);
+    printf("Enter GPA : ");
+    scanf("%f",&s1.c[i].GPA);
+}
+printf("Enter address(street) :");
+scanf("%s",s1.add.street_add);
+printf("Enter address(city) :");
+scanf("%s",s1.add.city);
+printf("Enter address(state) :");
+scanf("%s",s1.add.state);
+printf("Enter address(zip) :");
+scanf("%d",&s1.add.zip);    
+
+printf("STUDENT 2: ");
+printf("Enter CGPA : ");
+scanf("%f",&s2.CGPA);
+for(i=0;i<2;i++)
+{
+    printf("%d. Course name : ",i+1);
+    scanf("%s",s2.c[i].name);
+    printf("Enter GPA : ");
+    scanf("%f",&s2.c[i].GPA);
+}
+printf("Enter address(street) :");
+scanf("%s",s2.add.street_add);
+printf("Enter address(city) :");
+scanf("%s",s2.add.city);
+printf("Enter address(state) :");
+scanf("%s",s2.add.state);
+printf("Enter address(zip) :");
+scanf("%d",&s2.add.zip);
+
+//compare GPA
+for(i=0;i<2;i++)
+{
+ 
+    if(s1.c[i].GPA>s2.c[i].GPA)
+printf("Student 1 got higher GPA in course %s \n",s1.c[i].name);
+else if(s2.c[i].GPA>s1.c[i].GPA)
+printf("Student 2 got higher GPA in course %s \n",s2.c[i].name);
+else
+printf("both students got same GPA in course %s \n",s2.c[i].name);
+}
+if(s1.CGPA>s2.CGPA)
+printf("student 1 has higher CGPA\n");
+else
+printf("student 2 has higher CGPA\n");
+ return 0;
+
+}

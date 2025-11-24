@@ -1,0 +1,52 @@
+#include<stdio.h>
+ struct complex{
+ 	float i;
+ 	float r;
+ };
+void readcomplex(struct complex *c1,struct complex *c2);
+void writecomplex(struct complex c1, struct complex c2);
+void addcomplex(struct complex c1, struct complex c2,struct complex add);
+void mulcomplex(struct complex c1, struct complex c2,struct complex mul);
+ int main()
+ {
+ 	struct complex c1;
+ 	struct complex c2;
+ 	struct complex add={0.0,0.0};
+ 	struct complex mul={1.0,1.0};
+	
+ 	readcomplex(&c1,&c2);
+ 	writecomplex(c1,c2);
+ 	addcomplex(c1,c2,add);
+ 	mulcomplex(c1,c2,mul);
+ 	return 0;
+ }
+  void readcomplex(struct complex *c1,struct complex *c2)
+   {
+ 	printf("Enter 1st real number : \n");
+ 	scanf("%f",&(*c1).r);
+  	printf("Enter 1st imaginary number : \n");
+ 	scanf("%f",&(*c1).i);
+  	printf("Enter 2nd real number : \n");
+ 	scanf("%f",&(*c2).r);
+ 	printf("Enter 2nd imaginary number : \n");
+ 	scanf("%f",&(*c2).i);	 	
+ }
+ 
+ void writecomplex(struct complex c1, struct complex c2)
+{
+printf("c1 : real = %f \t imag = %fi\n",c1.r,c1.i);
+printf("c2 : real = %f \t imag = %fi\n",c2.r,c2.i);
+}
+void addcomplex(struct complex c1, struct complex c2,struct complex add)
+{
+add.r= c1.r + c2.r;
+add.i = c1.i + c2.i;
+printf(" addition of real part = %f\n",add.r);
+printf(" addition of imaginary part = %f\n",add.i); }
+
+void mulcomplex(struct complex c1, struct complex c2,struct complex mul)
+{
+mul.r= c1.r * c2.r;
+mul.i = c1.i * c2.i;
+printf(" multiplication of real part = %f\n",mul.r);
+printf(" multiplication of imaginary part = %f\n",mul.i); }
